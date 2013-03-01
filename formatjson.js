@@ -3,12 +3,10 @@
 // Reads JSON from stdin and writes equivalent
 // nicely-formatted JSON to stdout.
 
-var fs = require('fs');
+var inputChunks = [];
 
 process.stdin.resume();
 process.stdin.setEncoding('utf8');
-
-var inputChunks = [];
 
 process.stdin.on('data', function (chunk) {
     inputChunks.push(chunk);
