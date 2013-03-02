@@ -16,7 +16,8 @@ stdin.on('data', function (chunk) {
 
 stdin.on('end', function () {
     var inputJSON = inputChunks.join(),
-        outputJSON = JSON.parse(inputJSON);
-    stdout.write(JSON.stringify(outputJSON, null, '    '));
+        parsedData = JSON.parse(inputJSON),
+        outputJSON = JSON.stringify(parsedData, null, '    ');
+    stdout.write(outputJSON);
     stdout.write('\n');
 });
