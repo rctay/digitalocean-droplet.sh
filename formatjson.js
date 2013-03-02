@@ -3,18 +3,20 @@
 // Reads JSON from stdin and writes equivalent
 // nicely-formatted JSON to stdout.
 
-var inputChunks = [];
+var stdin = process.stdin,
+    stdout = process.stdout,
+    inputChunks = [];
 
-process.stdin.resume();
-process.stdin.setEncoding('utf8');
+stdin.resume();
+stdin.setEncoding('utf8');
 
-process.stdin.on('data', function (chunk) {
+stdin.on('data', function (chunk) {
     inputChunks.push(chunk);
 });
 
-process.stdin.on('end', function () {
+stdin.on('end', function () {
     var inputJSON = inputChunks.join(),
         outputJSON = JSON.parse(inputJSON);
-    process.stdout.write(JSON.stringify(outputJSON, null, '  '));
-    process.stdout.write('\n');
+    stdout.write(JSON.stringify(outputJSON, null, '    '));
+    stdout.write('\n');
 });
