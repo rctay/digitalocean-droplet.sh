@@ -3,7 +3,7 @@
 // Reads JSON from stdin, and runs a JSONPath expression from the command-line on it.
 //
 // eg.
-//    $ echo '{"store": {"book":[{"category":"fiction"}]}}' | node jsonpath.js '$.store.book[0].category
+//    $ echo '{"store": {"book":[{"category":"fiction"}]}}' | node jsonpath.js '$.store.book[0].category'
 //    fiction
 
 var stdin = process.stdin,
